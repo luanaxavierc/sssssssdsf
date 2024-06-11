@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Casal: Verdade ou Desafio - Humor Absurd</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        h1 {
+            color: #ff5733;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #ff5733;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #e04e2b;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jogo de Casal: Verdade ou Desafio</h1>
+    <button onclick="mostrarVerdade()">Verdade</button>
+    <button onclick="mostrarDesafio()">Desafio</button>
+    <div class="output" id="output"></div>
+    <img id="image" src="" alt="" style="display:none;">
+
+    <script>
+        const verdades = [
+            "Qual foi a coisa mais absurda que você já fez para evitar um compromisso?",
+            "Você já fingiu ser um especialista em algo totalmente ridículo? Qual foi a situação?",
+            "Qual é a desculpa mais sem noção que você já inventou para sair de uma situação?",
+            "Qual seria a sua primeira reação se encontrasse um alienígena na rua?",
+            "Você já tentou impressionar alguém com uma habilidade que você não tinha? Como foi?"
+        ];
+
+        const desafios = [
+            "Faça uma dança ridícula como se estivesse tentando espantar um urso.",
+            "Imite um personagem de desenho animado em uma conversa séria por 2 minutos.",
+            "Tente vender uma ideia absurda para seu parceiro(a), como uma bicicleta que anda de lado.",
+            "Descreva um dia normal da sua vida como se fosse um filme de ação.",
+            "Finja que é um apresentador de um programa de TV bizarro e entreviste seu parceiro(a)."
+        ];
+
+        const imagens = [
+            "alien.jpg", // Insira o caminho da imagem de um alienígena engraçado
+            "dança.jpg", // Insira o caminho da imagem de uma dança engraçada
+            "desenho.jpg", // Insira o caminho da imagem de um personagem de desenho animado
+            "tv.jpg", // Insira o caminho da imagem de um apresentador de TV bizarro
+            "ação.jpg" // Insira o caminho da imagem de um filme de ação
+        ];
+
+        function mostrarVerdade() {
+            const randomIndex = Math.floor(Math.random() * verdades.length);
+            document.getElementById('output').textContent = verdades[randomIndex];
+            mostrarImagem();
+        }
+
+        function mostrarDesafio() {
+            const randomIndex = Math.floor(Math.random() * desafios.length);
+            document.getElementById('output').textContent = desafios[randomIndex];
+            mostrarImagem();
+        }
+
+        function mostrarImagem() {
+            const randomIndex = Math.floor(Math.random() * imagens.length);
+            const img = document.getElementById('image');
+            img.src = imagens[randomIndex];
+            img.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
